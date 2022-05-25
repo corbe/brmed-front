@@ -1,0 +1,24 @@
+<div>
+
+ 
+  <div [chart]="chart"></div>
+
+
+
+</div>
+
+<div style="display:none" *ngFor="let u of users | paginate: { id: 'rate', itemsPerPage: 10, currentPage: page, totalItems: total }"
+  >
+  {{u}}
+</div>
+
+<pagination-controls
+  id="rate"
+  (pageChange)="pageChangeEvent($event)"
+  (pageBoundsCorrection)="pageChangeEvent($event)"           
+  previousLabel="Anterior"
+  nextLabel="Próximo"
+  screenReaderPaginationLabel="Pagination"
+  screenReaderPageLabel="page"
+  screenReaderCurrentLabel="You're on page">
+</pagination-controls>
